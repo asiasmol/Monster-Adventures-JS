@@ -3,6 +3,7 @@ let monster = document.getElementById("monster");
 let startMessage = document.querySelector("#start-message");
 let sound_jump = new Audio("../audio/jump.mp3")
 let sound_forest = new Audio("../audio/forest.mp3")
+const sound_death = new Audio("../audio/death.mp3")
 const stone = document.getElementById("stone")
 const score = document.getElementById("score")
 
@@ -85,6 +86,7 @@ var checkIfLoose = setInterval(function(){
 
         }
     if (stoneLeft<=monsterLeft+50 && stoneLeft>=monsterLeft && monsterTop>=170){
+        sound_death.play()
         alert("You jumped : " + score.innerText + " stones" + "\nDo you want to jump again?");
         location.reload()
     }
